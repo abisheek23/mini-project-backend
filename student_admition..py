@@ -29,25 +29,29 @@ while True:
                             if i[6]=='class2':
                                 print(i[0])
                                 class2.append(student)
-                elif ad==4:
-                        print("1.from class1\n2.from class2")
-                        det=int(input("enter your chais"))
-                        if det==1 :
-                            if i[6]==class1:
+                # elif ad==4:
+                #         print("1.from class1\n2.from class2")
+                #         det=int(input("enter your chais"))
+                #         if det==1 :
+                #             if i[6]==class1:
                                   
-                                a=(input("enter the name :"))
-                                b=(input("enter the admition_no :"))
-                                for i in student:
-                                        if a==i[0] and b==i[1]:
-                                            print("student found:", i[student])
-                        elif det==2 :
-                                a=(input("enter the name :"))
-                                b=(input("enter the admition_no :"))
-                                for i in class2:
-                                    if a==i[0] and b==i[1]:
-                                     print("student found:",i[0],i[6])
-                        #  else:
-                        #     print("student not found , check the detils")
+                #                 a=(input("enter the name :"))
+                #                 b=(input("enter the admition_no :"))
+                #                 f=0
+                #                 for i in student:
+                #                         f==1
+                #                         if a==i[0] and b==i[1]:
+                #                             print("student found:", i[student])
+                #         elif det==2 :
+                #                 a=(input("enter the name :"))
+                #                 b=(input("enter the admition_no :"))
+                #                 f=0
+                #                 for i in class2:
+                #                     f==1
+                #                     if a==i[0] and b==i[1]:
+                #                      print("student found:",i[0],i[6])
+                #                     else:
+                #                         print("student not found , check the detils")
                      
                      
                 elif ad==5:
