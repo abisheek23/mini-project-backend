@@ -33,6 +33,7 @@ while True:
         for emp in employees:
             if emp['ID'] == emp_id:
                 print("Enter new details (leave blank to keep current value):")
+                new_name = input(f"Enter Employee Name (current: {emp['Name']}): ")
                 new_department = input(f"Enter Department (current: {emp['Department']}): ")
                 new_position = input(f"Enter Position (current: {emp['Position']}): ")
                 new_salary = input(f"Enter Salary (current: {emp['Salary']}): ")
