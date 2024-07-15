@@ -1,0 +1,95 @@
+# from reg import *
+# from dis import *
+# from upd import *
+# from delet import *
+# from admin import*
+# data=[{"id": "1", "name": "Alice", "age": "30", "place": "New York"},
+#     {"id": "2", "name": "Bob", "age": "25", "place": "Chicago"},]
+# admin=[{'name':'admin','password':'admin123'}]
+# while True:
+#     print("1.login\n2.display\n3.update\n4.dalete\n5.Exit")
+#     ch=int(input("Enter your choice:"))
+#     if ch==1:
+#         login(admin)
+#     elif ch==2:
+#         dis(data) 
+#     elif ch == 3:
+#         up(data)
+#     elif ch == 4:
+#         dele(data)
+#     elif ch == 5:
+#         print("You had exited")
+#         break
+#     else:
+#         ("Invalid input")
+
+class Room:
+    def __init__(self, room_number, capacity, price_per_night):
+        self.room_number = room_number
+        self.capacity = capacity
+        self.price_per_night = price_per_night
+        self.is_booked = False
+        self.guest_name = None
+        self.check_in_date = None
+        self.check_out_date = None
+    
+    def book_room(self, guest_name, check_in_date, check_out_date):
+        self.is_booked = True
+        self.guest_name = guest_name
+        self.check_in_date = check_in_date
+        self.check_out_date = check_out_date
+        print(f"Room {self.room_number} booked for {guest_name} from {check_in_date} to {check_out_date}")
+
+    def display_info(self):
+        print(f"Room Number: {self.room_number}")
+        print(f"Capacity: {self.capacity}")
+        print(f"Price per Night: ${self.price_per_night}")
+        if self.is_booked:
+            print(f"Status: Booked for {self.guest_name}")
+            print(f"Check-in Date: {self.check_in_date}")
+            print(f"Check-out Date: {self.check_out_date}")
+        else:
+            print("Status: Available")
+        print("--------------------")
+
+class Hotel:
+    def __init__(self, name):
+        self.name = name
+        self.rooms = []
+
+    def add_room(self, room):
+        self.rooms.append(room)
+
+    def display_rooms(self):
+        for room in self.rooms:
+            room.display_info()
+
+    def book_room(self, room_number, guest_name, check_in_date, check_out_date):
+        for room in self.rooms:
+            if room.room_number == room_number and not room.is_booked:
+                room.book_room(guest_name, check_in_date, check_out_date)
+                return
+        print(f"Room {room_number} is either booked or does not exist.")
+
+# Creating a hotel instance
+hotel = Hotel("Py Hotel")
+
+# Adding rooms to the hotel
+room1 = Room(101, 2, 100)
+room2 = Room(102, 3, 150)
+room3 = Room(103, 4, 200)
+
+hotel.add_room(room1)
+hotel.add_room(room2)
+hotel.add_room(room3)
+
+# Displaying available rooms
+print(f"{hotel.name} Rooms Available:")
+hotel.display_rooms()
+
+# Booking a room
+hotel.book_room(102, "Alice", "2024-07-15", "2024-07-18")
+
+# Displaying rooms after booking
+print(f"{hotel.name} Rooms After Booking:")
+hotel.display_rooms()
