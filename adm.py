@@ -6,7 +6,7 @@ rooms = []
 users = []
 booked_rooms = []
 
-# Room Data Structure
+# Room 
 def create_room(room_number, capacity, price_per_night):
     return {
         "room_number": room_number,
@@ -18,7 +18,7 @@ def create_room(room_number, capacity, price_per_night):
         "check_out_date": None
     }
 
-# User Data Structure
+# User 
 def create_user(username, password, is_admin=False):
     return {
         "username": username,
@@ -26,7 +26,7 @@ def create_user(username, password, is_admin=False):
         "is_admin": is_admin
     }
 
-# Function to display room information
+# room information
 def display_room_info(room):
     print(f"Room Number: {room['room_number']}")
     print(f"Capacity: {room['capacity']}")
@@ -39,23 +39,23 @@ def display_room_info(room):
         print("Status: Available")
     print("--------------------")
 
-# Function to add a room
+#  add room
 def add_room(room):
     rooms.append(room)
 
-# Function to display all rooms
+# display all rooms
 def display_rooms():
     for room in rooms:
         display_room_info(room)
 
-# Function to find a room by its number
+#  find a room by its number
 def find_room_by_number(room_number):
     for room in rooms:
         if room["room_number"] == room_number:
             return room
     return None
 
-# Function to register a user
+#   user registration
 def register_user(username, password, is_admin=False):
     for user in users:
         if user["username"] == username:
@@ -66,7 +66,7 @@ def register_user(username, password, is_admin=False):
     print("Registration successful.")
     return True
 
-# Function to login a user
+# user login 
 def login_user(username, password):
     for user in users:
         if user["username"] == username and user["password"] == password:
@@ -75,7 +75,7 @@ def login_user(username, password):
     print("Invalid username or password. Please try again.")
     return None
 
-# Function to book a room
+# booking a room
 def book_room(room_number, guest_name, check_in_date, check_out_date):
     room = find_room_by_number(room_number)
     if room and not room["is_booked"]:
@@ -90,7 +90,7 @@ def book_room(room_number, guest_name, check_in_date, check_out_date):
     else:
         print(f"Room {room_number} does not exist.")
 
-# Function to display booked rooms
+# to display booked rooms
 def display_booked_rooms():
     if not booked_rooms:
         print("No rooms are currently booked.")
@@ -99,7 +99,7 @@ def display_booked_rooms():
         for room in booked_rooms:
             display_room_info(room)
 
-# Initial Setup
+
 room1 = create_room(101, 2, 100)
 room2 = create_room(102, 3, 150)
 room3 = create_room(103, 4, 200)
@@ -110,7 +110,7 @@ add_room(room3)
 
 register_user("admin", "adminpass", is_admin=True)
 
-# Function to handle admin login
+#  admin login
 def admin_login():
     print("----- Admin Login -----")
     username = input("Enter username: ")
@@ -122,7 +122,7 @@ def admin_login():
         print("Access denied. Only admins can access this feature.")
         return False
 
-# Function to add a new room
+# to add a new room
 def add_new_room():
     print("----- Add Room -----")
     room_number = int(input("Enter room number: "))
@@ -132,7 +132,7 @@ def add_new_room():
     add_room(new_room)
     print(f"Room {room_number} added successfully.")
 
-# Main program loop
+# Main program 
 while True:
     print("\n----- Welcome to Py Hotel -----")
     print("1. Admin Login")
